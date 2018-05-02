@@ -113,6 +113,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     operation = "mod";
                     display = "";
                     tvDisplay.setText(display);
+                    flag = true;
                     break;
                 }
 
@@ -125,6 +126,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     operation = "divide";
                     display = "";
                     tvDisplay.setText(display);
+                    flag = true;
                     break;
                 }
 
@@ -152,6 +154,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     operation = "multiply";
                     display = "";
                     tvDisplay.setText(display);
+                    flag = true;
                     break;
                 }
 
@@ -179,6 +182,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     operation = "minus";
                     display = "";
                     tvDisplay.setText(display);
+                    flag = true;
                     break;
                 }
 
@@ -206,6 +210,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     operation = "plus";
                     display = "";
                     tvDisplay.setText(display);
+                    flag = true;
                     break;
                 }
 
