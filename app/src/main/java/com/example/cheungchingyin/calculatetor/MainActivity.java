@@ -100,9 +100,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.btn_del:
-                display = display.substring(0, display.length() - 1);
-                tvDisplay.setText(display);
-                break;
+                if (display.isEmpty()){
+                    break;//防止在所有数清除后再按删除键导致闪退
+                }else {
+
+                    display = display.substring(0, display.length() - 1);
+                    tvDisplay.setText(display);
+                    break;
+                }
 
             case R.id.btn_mod:
                 if (flag) {
