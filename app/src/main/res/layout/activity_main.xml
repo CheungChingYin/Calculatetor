@@ -6,18 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tv_display"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/ll_display"
+        android:layout_width="wrap_content"
         android:layout_height="270dp"
-        android:textColor="#000"
-        android:textSize="30sp" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_display"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:textColor="#000"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textSize="20dp"
+            android:text="History:"
+            />
+
+        <TextView
+            android:id="@+id/tv_history"
+            android:layout_width="wrap_content"
+            android:layout_height="110dp" />
+
+    </LinearLayout>
+
 
     <TableLayout
         android:id="@+id/tl_button"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tv_display"
+        android:layout_below="@id/ll_display"
         android:layout_alignParentBottom="true">
 
         <TableRow>
