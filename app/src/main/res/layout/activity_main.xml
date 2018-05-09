@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/bg">
 
     <LinearLayout
         android:id="@+id/ll_display"
@@ -16,7 +17,7 @@
             android:id="@+id/tv_display"
             android:layout_width="match_parent"
             android:layout_height="130dp"
-            android:textColor="#000"
+            android:textColor="#FFF"
             android:textSize="30sp" />
 
         <TextView
@@ -24,12 +25,13 @@
             android:layout_height="30dp"
             android:textSize="20dp"
             android:text="History:"
-            />
+            android:textColor="#FFF"/>
 
         <TextView
             android:id="@+id/tv_history"
             android:layout_width="wrap_content"
-            android:layout_height="110dp" />
+            android:layout_height="110dp"
+            android:textColor="#FFF"/>
 
     </LinearLayout>
 
