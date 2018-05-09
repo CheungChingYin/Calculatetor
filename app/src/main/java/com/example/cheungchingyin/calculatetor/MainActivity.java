@@ -37,6 +37,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private double secondNum = 0.0;
     private double result = 0.0;
     private boolean flag = false;
+    private boolean equual_flag = false;
     private String operation = null;
     Operation op = new Operation();
 
@@ -104,6 +105,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 secondNum = 0.0;
                 result = 0.0;
                 flag = false;
+                equual_flag = false;
                 break;
 
             case R.id.btn_del:
@@ -128,6 +130,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     tvHistory.setText(history);
                     tvDisplay.setText(display);
                     flag = true;
+                    equual_flag=true;
                     break;
                 }
 
@@ -143,6 +146,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     tvHistory.setText(history);
                     tvDisplay.setText(display);
                     flag = true;
+                    equual_flag=true;
                     break;
                 }
 
@@ -173,6 +177,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     tvHistory.setText(history);
                     tvDisplay.setText(display);
                     flag = true;
+                    equual_flag=true;
                     break;
                 }
 
@@ -203,6 +208,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     tvHistory.setText(history);
                     tvDisplay.setText(display);
                     flag = true;
+                    equual_flag=true;
                     break;
                 }
 
@@ -233,6 +239,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     tvHistory.setText(history);
                     tvDisplay.setText(display);
                     flag = true;
+                    equual_flag=true;
                     break;
                 }
 
@@ -247,36 +254,40 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.btn_equit:
-                str = tvDisplay.getText().toString();
-                secondNum = Double.parseDouble(str);
-                switch (operation) {
-                    case "plus":
-                        result = op.Plus(firstNum, secondNum);
-                        break;
+                if (equual_flag){
 
-                    case "minus":
-                        result = op.Minus(firstNum, secondNum);
-                        break;
+                    str = tvDisplay.getText().toString();
+                    secondNum = Double.parseDouble(str);
+                    switch (operation) {
+                        case "plus":
+                            result = op.Plus(firstNum, secondNum);
+                            break;
 
-                    case "multiply":
-                        result = op.Multiply(firstNum, secondNum);
-                        break;
+                        case "minus":
+                            result = op.Minus(firstNum, secondNum);
+                            break;
 
-                    case "divide":
-                        result = op.Divide(firstNum, secondNum);
-                        break;
+                        case "multiply":
+                            result = op.Multiply(firstNum, secondNum);
+                            break;
 
-                    case "mod":
-                        result = op.Mod(firstNum, secondNum);
-                        break;
+                        case "divide":
+                            result = op.Divide(firstNum, secondNum);
+                            break;
 
+                        case "mod":
+                            result = op.Mod(firstNum, secondNum);
+                            break;
+
+                    }
+                    display = result + "";
+                    history+=str+"="+result+"\n";
+                    tvHistory.setText(history);
+                    tvDisplay.setText(display);
+                    flag = false;
+                    equual_flag=false;
+                    break;
                 }
-                display = result + "";
-                history+=str+"="+result+"\n";
-                tvHistory.setText(history);
-                tvDisplay.setText(display);
-                flag = false;
-                break;
 
         }
 
