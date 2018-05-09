@@ -2,6 +2,7 @@ package com.example.cheungchingyin.calculatetor;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import com.example.cheungchingyin.util.Operation;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private TextView tvDisplay;
+    private TextView tvHistory;
     private Button btnClear;
     private Button btnDel;
     private Button btnMod;
@@ -30,6 +32,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button btnPoint;
     private Button btnEquit;
     private String display = "";
+    private String history = "";
     private double firstNum = 0.0;
     private double secondNum = 0.0;
     private double result = 0.0;
@@ -43,6 +46,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 
         tvDisplay = findViewById(R.id.tv_display);
+        tvHistory = findViewById(R.id.tv_history);
         btnClear = findViewById(R.id.btn_clear);
         btnDel = findViewById(R.id.btn_del);
         btnMod = findViewById(R.id.btn_mod);
@@ -82,6 +86,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btn0.setOnClickListener(this);
         btnPoint.setOnClickListener(this);
         btnEquit.setOnClickListener(this);
+        tvHistory.setMovementMethod(ScrollingMovementMethod.getInstance());
 
 
     }
@@ -92,6 +97,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.btn_clear:
                 display = "";
+                history = "";
+                tvHistory.setText(history);
                 tvDisplay.setText(display);
                 firstNum = 0.0;
                 secondNum = 0.0;
@@ -114,9 +121,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     break;
                 } else {
                     str = tvDisplay.getText().toString();
+                    history+=str+"%";
                     firstNum = Double.parseDouble(str);
                     operation = "mod";
                     display = "";
+                    tvHistory.setText(history);
                     tvDisplay.setText(display);
                     flag = true;
                     break;
@@ -127,9 +136,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     break;
                 } else {
                     str = tvDisplay.getText().toString();
+                    history+=str+"÷";
                     firstNum = Double.parseDouble(str);
                     operation = "divide";
                     display = "";
+                    tvHistory.setText(history);
                     tvDisplay.setText(display);
                     flag = true;
                     break;
@@ -155,9 +166,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     break;
                 } else {
                     str = tvDisplay.getText().toString();
+                    history+=str+"×";
                     firstNum = Double.parseDouble(str);
                     operation = "multiply";
                     display = "";
+                    tvHistory.setText(history);
                     tvDisplay.setText(display);
                     flag = true;
                     break;
@@ -183,9 +196,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     break;
                 } else {
                     str = tvDisplay.getText().toString();
+                    history+=str+"-";
                     firstNum = Double.parseDouble(str);
                     operation = "minus";
                     display = "";
+                    tvHistory.setText(history);
                     tvDisplay.setText(display);
                     flag = true;
                     break;
@@ -211,9 +226,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     break;
                 } else {
                     str = tvDisplay.getText().toString();
+                    history+=str+"+";
                     firstNum = Double.parseDouble(str);
                     operation = "plus";
                     display = "";
+                    tvHistory.setText(history);
                     tvDisplay.setText(display);
                     flag = true;
                     break;
@@ -255,6 +272,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 }
                 display = result + "";
+                history+=str+"="+result+"\n";
+                tvHistory.setText(history);
                 tvDisplay.setText(display);
                 flag = false;
                 break;
